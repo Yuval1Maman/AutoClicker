@@ -5,10 +5,10 @@ import java.awt.Robot;
 import java.awt.image.BufferedImage;
 
 public class AutoClicker {
-    private static final Color color1 = new Color(239,209,144);
-    //private static final Color color2 = new Color(255,255,255);
+    private static final Color color1 = new Color(14,184,17);
+    private static final Color color2 = new Color(240,209,144);
     public static int total_counter = 0;
-    private static final int COLOR_RANGE = 3;
+    private static final int COLOR_RANGE = 2;
 
     private Rectangle region;
 
@@ -41,7 +41,7 @@ public class AutoClicker {
                 for (int y = 0; y < screenshot.getHeight(); y++) {
                     int pixel = screenshot.getRGB(x, y);
                     Color color = new Color(pixel);
-                    if (isInRange(color, color1, COLOR_RANGE)) {
+                    if (isInRange(color, color1, COLOR_RANGE) || isInRange(color, color2, COLOR_RANGE)) {
                         robot.mouseMove(region.x + x + 2, region.y + y);
                         robot.mousePress(java.awt.event.InputEvent.BUTTON1_DOWN_MASK);
                         robot.mouseRelease(java.awt.event.InputEvent.BUTTON1_DOWN_MASK);
